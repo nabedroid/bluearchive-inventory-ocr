@@ -38,7 +38,7 @@ const OOPARTS_TABLE_2 = [
 ];
 
 const EQUIP_CATEGORIES = ['ネックレス', '時計', 'お守り', 'ヘアピン', 'バッジ', 'バッグ', 'シューズ', 'グローブ', '帽子'];
-const EQUIP_LEVELS = ['lv1', 'lv2', 'lv3', 'lv4', 'lv5', 'lv6', 'lv7', 'lv8', 'lv9', 'lv10', '万能'];
+const EQUIP_TIERS = ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', '万能'];
 const EQUIP_REQ = [1, 40, 45, 50, 55, 65, 65, 60, 50, 60, 1500];
 
 const EQUIP_NAMES: Record<string, string[]> = {
@@ -198,12 +198,12 @@ export const SummaryView: React.FC<SummaryViewProps> = ({ results, masterData })
             </tr>
           </thead>
           <tbody>
-            {EQUIP_LEVELS.map((lv, levelIdx) => (
-              <tr key={lv}>
-                <td style={rowThStyle}>{lv}</td>
+            {EQUIP_TIERS.map((tier, tierIdx) => (
+              <tr key={tier}>
+                <td style={rowThStyle}>{tier}</td>
                 {EQUIP_CATEGORIES.map(cat => {
-                  const itemName = EQUIP_NAMES[cat][levelIdx];
-                  const reqNum = EQUIP_REQ[levelIdx];
+                  const itemName = EQUIP_NAMES[cat][tierIdx];
+                  const reqNum = EQUIP_REQ[tierIdx];
                   return renderStackedCell(getQty(itemName), itemName, reqNum);
                 })}
               </tr>
@@ -298,7 +298,7 @@ export const SummaryView: React.FC<SummaryViewProps> = ({ results, masterData })
                 </th>
               ))}
               <th style={thSmallFixedStyle}>
-                <div style={{ fontSize: '0.8rem', whiteSpace: 'normal', wordBreak: 'keep-all', lineHeight: '1.2' }}>秘伝</div>
+                <div style={{ fontSize: '0.8rem', whiteSpace: 'normal', wordBreak: 'keep-all', lineHeight: '1.2' }}>秘伝<br />ノート</div>
               </th>
             </tr>
           </thead>
@@ -419,15 +419,15 @@ export const SummaryView: React.FC<SummaryViewProps> = ({ results, masterData })
           <thead>
             <tr>
               <th style={thStyle}></th>
-              <th style={thStyle}>カケラ</th>
-              <th style={thStyle}>テイラー</th>
+              {renderIconHeader('神名のカケラ', '神名のカケラ')}
+              {renderIconHeader('最上級テイラーストーン', 'テイラーストーン')}
             </tr>
           </thead>
           <tbody>
             {TIERS.map((tier) => (
               <tr key={tier}>
                 <td style={rowThStyle}>{tier}</td>
-                {tier === '初級' ? renderStackedCell(getQty('神明のカケラ'), '神明のカケラ_tier') : renderEmptyCell(`カケラ空欄${tier}`)}
+                {tier === '初級' ? renderStackedCell(getQty('神名のカケラ'), '神名のカケラ_tier') : renderEmptyCell(`カケラ空欄${tier}`)}
                 {renderStackedCell(getQty(`${tier}テイラーストーン`), `${tier}テイラーストーン`)}
               </tr>
             ))}
@@ -435,6 +435,6 @@ export const SummaryView: React.FC<SummaryViewProps> = ({ results, masterData })
         </table>
       </div>
 
-    </div>
+    </div >
   );
 };

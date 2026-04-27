@@ -5,7 +5,7 @@ ITEM_MASTER = [
   { "name": "総力戦コイン", "filename": "Item_Icon_RaidCoin", "bg": "Card_Item_Bg_N"},
   { "name": "戦術コイン", "filename": "Item_Icon_ArenaCoin", "bg": "Card_Item_Bg_N"},
   { "name": "総力戦レアコイン", "filename": "Item_Icon_RaidCoin_High", "bg": "Card_Item_Bg_N"},
-  { "name": "神明のカケラ", "filename": "Item_Icon_SecretStone", "bg": "Card_Item_Bg_N"},
+  { "name": "神名のカケラ", "filename": "Item_Icon_SecretStone", "bg": "Card_Item_Bg_N"},
   { "name": "火力演習コイン", "filename": "Item_Icon_TimeAttackCoin", "bg": "Card_Item_Bg_N"},
   { "name": "指名手配コイン", "filename": "Item_Icon_ChaserCoin", "bg": "Card_Item_Bg_N"},
   { "name": "大決戦コイン", "filename": "Item_Icon_EliminateRaidCoin", "bg": "Card_Item_Bg_N"},
