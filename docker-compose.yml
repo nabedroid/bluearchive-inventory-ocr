@@ -1,0 +1,64 @@
+services:
+  main:
+    container_name: main
+    build:
+      context: .
+      dockerfile: ./main/Dockerfile
+    develop:
+      watch:
+        - action: rebuild
+          path: ./main/package.json
+        - action: rebuild
+          path: ./main/Dockerfile
+        - action: sync
+          path: ./common
+          target: /app/common
+        - action: sync
+          path: ./main
+          target: /app/main
+          ignore:
+            - node_modules/
+            - Dockerfile
+            - package.json
+            - README.md
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    tty: true
+  manager:
+    container_name: manager
+    build:
+      context: .
+      dockerfile: ./manager/Dockerfile
+    develop:
+      watch:
+        - action: rebuild
+          path: ./manager/package.json
+        - action: rebuild
+          path: ./manager/Dockerfile
+        - action: sync
+          path: ./common
+          target: /app/common
+        - action: sync
+          path: ./manager
+          target: /app/manager
+          ignore:
+            - node_modules/
+            - Dockerfile
+            - package.json
+            - README.md
+    ports:
+      - "3001:3001"
+    stdin_open: true
+    tty: true
+  trial:
+    container_name: trial
+    build:
+      context: .
+      dockerfile: ./trial/Dockerfile
+    volumes:
+      - ./trial:/app
+      - ./trial/output:/app/output
+      - ${BLUE_ARCHIVE_INSTALL_PATH}:/app/BlueArchive_JP
+    stdin_open: true
+    tty: true
