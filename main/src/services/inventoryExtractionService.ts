@@ -164,7 +164,6 @@ export class InventoryExtractionService {
         colorHash,
         settings.minGoodMatches,
         settings.earlyReturnThreshold,
-        settings.colorThreshold
       );
 
       results.push({

@@ -136,7 +136,7 @@ export class ItemMasterService {
    * @param earlyReturnThreshold この点数以上一致したら即座に返す (デフォルト 10)
    * @param colorThreshold 色の許容誤差 (デフォルト 30)
    */
-  public findItem(descriptors: any, colorHash: number[], minGoodMatches: number = 5, earlyReturnThreshold: number = 10, colorThreshold: number = 30): ItemMasterData | null {
+  public findItem(descriptors: any, colorHash: number[], minGoodMatches: number = 5, earlyReturnThreshold: number = 10): ItemMasterData | null {
     // OpenCV が読み込まれていない、または特徴量データがない場合はスキップ
     if (!descriptors || typeof cv === 'undefined') return null;
 

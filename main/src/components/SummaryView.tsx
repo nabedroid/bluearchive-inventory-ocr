@@ -1,5 +1,5 @@
 import React from 'react';
-import type { AnalyzedItem } from '@common/types';
+import type { AnalyzedItem } from '../services/inventoryExtractionService';
 import { ItemMasterData } from '@common/services/itemMasterService';
 
 interface SummaryViewProps {

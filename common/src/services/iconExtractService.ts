@@ -1,5 +1,5 @@
 import { Rectangle } from '../types';
-import { MatManager, crop } from '../utils/mat';
+import { MatManager } from '../utils/mat';
 
 /**
  * OpenCV (cv) の型定義（簡易版）
